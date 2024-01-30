@@ -12,14 +12,20 @@ public class inserter {
         //      to create N2, right shift N by i, then left shift by i, thus clearing the left. Re-add from j to the end.
         //add this new M to N and return
 
-        if (!(i > j && i < 0 && j < 32)) {
+        if (!(i > j && i > 0 && j < 32)) {
             throw new RuntimeException("Failed input validation.");
         }
+
+        System.out.println(Integer.toBinaryString(N));
         
 
     }
 
     public static void main (String[] args){
-        insert(0, 0, 0, 0);
+        int N = Integer.parseInt("11111", 2);
+        int M = Integer.parseInt("00000", 2);
+        int i = 2;
+        int j = 1;
+        insert(N, M, i, j);
     }
 }
