@@ -1,7 +1,7 @@
 public class toString {
 
-    public static String printBinary(double decimal){
-        if (decimal >= 1 || num <= 0){
+    public static String printBinary(double num){
+        if (num >= 1 || num <= 0){
             return "ERROR";
         }
 
