@@ -1,5 +1,5 @@
 
-public class inserter {
+public class Q5_1 {
     //Given N and M (32 bit) and bit positions i and j
     //overwrite M into N such that it starts at bit j+1 and ends at bit i+1
     //assume M can always fit within j and i

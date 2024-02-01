@@ -1,4 +1,4 @@
-public class flip {
+public class Q5_3 {
     //find the longest sequence of 1's that is seperated by one 0
     //in N time, we can walk down the number while keeping track of the longest sequence
     //When we hit our first 0, seq1 will continue counting while seq2 will start. 

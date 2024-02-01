@@ -1,4 +1,4 @@
-public class toString {
+public class Q5_2 {
 
     public static String printBinary(double num){
         if (num >= 1 || num <= 0){
