@@ -21,13 +21,30 @@ public class Q5_8 {
         //for x2, it's the same but for the last bit on the right
         //how to convert that to the binary we need?
 
+        //otherwise
         int firstbits = (1 << (8 - (x1 % 8))) - 1;
         int lastbits = ((1 << (x2 % 8)) - 1) << (8 - (x2 % 8));
-        System.out.println(Integer.toString(firstbits, 2));
-        System.out.println(Integer.toString(lastbits, 2));
+        //System.out.println(Integer.toString(firstbits, 2));
+        //System.out.println(Integer.toString(lastbits, 2));
 
         int start = y * width + (int) Math.floor(x1 / 8) * 8;
         int end = (int) Math.ceil((x2 - x1) / 8) + 1;
+
+        System.out.println(start / width);
+        System.out.println(end + 1);
+
+        //special case if x1 and x2 are in the same byte
+        //00111110-00000000-00000000-00000000
+        // then we can just iterate over that one byte
+        if((start / width) == (end + 1)){
+            int oneByte = 0;
+            for (int j = 0; j < (x2 - x1); j++){
+                oneByte += 1 << (8 % (x2 + 1)) + j;
+            }
+            System.out.println("hohooh " + Integer.toString(oneByte, 2));
+            screen[start/8] = (byte) oneByte;
+            return;
+        }
 
         int i = 0;
         for(i = 0; i < end; i++){
@@ -67,7 +84,7 @@ public class Q5_8 {
     public static void main(String args []){
         byte[] test = new byte[16];
         int w = 32;
-        drawLine(test, w, 2, 30, 2);
+        drawLine(test, w, 10, 30, 2);
         System.out.println("Byte Array as String of Bits:");
         System.out.println(byteArrayToBitsStringWithNewline(test, w));
 
